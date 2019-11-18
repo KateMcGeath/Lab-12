@@ -60,18 +60,19 @@ public class DrawPanel extends JPanel
         {
             // Remember this starting coordinate (look at documentation for mouse events)
             // You can store these in x0 and y0
-            // TODO
+            x0 =  e.getX();
+            y0 = e.getY();
 
             // are we in edit mode?
             if (frame.isEditing())
             {
                 // create point where the mouse was clicked
-                // TODO
+            	Point point = new Point(x0, y0);
 
                 // find which shape was clicked
                 // loop through shapes in stack fashion, LIFO
                 // TODO
-                for (// TODO: loop through shape list)
+                for (int index = shapeList.size() - 1; index > 0; index--)
                 {
                     if (// TODO: check if point in shape)
                     {
