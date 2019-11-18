@@ -71,20 +71,21 @@ public class DrawPanel extends JPanel
 
                 // find which shape was clicked
                 // loop through shapes in stack fashion, LIFO
-                // TODO
-                for (int index = shapeList.size() - 1; index > 0; index--)
-                {
-                    if (// TODO: check if point in shape)
+                for (int index = shapeList.size() - 1; index > 0; index--) {
+                    if (shapeList.get(index).contains(point))
                     {
                         // if the shape contains the point, set the shapeIndex
                         // to be the index in the shapeList
-                        shapeIndex = i;
+                        shapeIndex = index;
 
                         // TODO: find if the shape is filled
                         // TODO: set fillBox to match the status of the shape
-
+                        if(shapeList.get(index).isFilled())
+                        	frame.fillBox.setFilled();
+                        
                         // TODO: get color of the shape
                         // TODO: set the color of the frame to match the shape's color
+                        	frame.setColor(shapeList.get(index).getColor());
                         
                         // TODO: break out of the for loop
                         
