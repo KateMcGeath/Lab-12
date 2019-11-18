@@ -384,18 +384,26 @@ public class DrawFrame extends JFrame
                     if (randShapeChoice == 0) // Diamond
                     {
                         // TODO: create a diamond with the random values and add it to the drawpanel.
+                    	Diamond dia = new Diamond(randPoint, randVal1, randVal2, randColor, randFill);
+                    	drawPanel.addShape(dia);
                     }
                     else if (randShapeChoice == 1) // Rectangle
                     {
                         // TODO: create a rectangle with the random values and add it to the drawpanel.
+                    	Rectangle rec = new Rectangle(randPoint, randVal1, randVal2, randColor, randFill);
+                    	drawPanel.addShape(rec);
                     }
                     else if (randShapeChoice == 2) // Oval
                     {
                         // TODO: create a oval with the random values and add it to the drawpanel.
+                    	Oval ov = new Oval(randPoint, randVal1, randVal2, randColor, randFill);
+                    	drawPanel.addShape(ov);
                     }
                     else // Triangle
                     {
                         // TODO: create a triangle with the random values and add it to the drawpanel.
+                    	RightTriangle tri = new RightTriangle(randPoint, randVal1, randVal2, randColor, randFill);
+                    	drawPanel.addShape(tri);
                     }
                     // repaint panel
                     drawPanel.repaint();
