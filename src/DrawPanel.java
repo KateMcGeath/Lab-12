@@ -208,27 +208,34 @@ public class DrawPanel extends JPanel
             int ydist = y1 - y0;
             int width = xdist*2; // Width/height are twice the distance from ovals, rectangles, and diamonds.
             int height = ydist*2;
+            Point myPoint = new Point(xdist, ydist);
 
             // Create a new object, depending on what is selected
             // TODO give them diamond, comments else
             if (frame.isOval())
             {
                 // TODO: create and return an Oval
-                
+            	Oval ovl = new Oval(myPoint, width, height, frame.getControlPanel().color, frame.isFilled());
+            	return ovl;
             }
             else if (frame.isRectangle())
             {
                 // TODO: create and return a Rectangle
-                
+            	Rectangle rec = new Rectangle(myPoint, width, height, frame.getControlPanel().color, frame.isFilled());
+            	return rec;
             }
             else if (frame.isTriangle())
             {
                 // TODO: create and return a Triangle
+            	RightTriangle tri = new RightTriangle(myPoint, xdist, ydist, frame.getControlPanel().color, frame.isFilled());
+            	return tri;
                 
             }
             else if (frame.isDiamond())
             {
                 // TODO: create and return diamond
+            	Diamond dia = new Diamond(myPoint, width, height, frame.getControlPanel().color, frame.isFilled());
+            	return dia;
                 
             }
             // Should not get here, but be safe
