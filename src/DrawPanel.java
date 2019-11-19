@@ -294,9 +294,11 @@ public class DrawPanel extends JPanel
         super.paintComponent(g);
 
         // TODO: Draw each shape on the list
-        
+        for(Shape s: shapeList) {
+        	s.draw(g);
+        }
         // TODO: If there is a temporary shape, then draw it, too
-        
+        tempShape.draw(g);
     }
 
     /**
