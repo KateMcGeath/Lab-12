@@ -143,18 +143,24 @@ public class DrawPanel extends JPanel
 
                 // Coordinates of the cursor (x0/y0 are already being used, what should you use?)
                 // TODO
+            	x1 =  e.getX();
+                y1 = e.getY();
 
                 // Indicate that we are no longer drawing
                 // TODO
+                drawingFlag = false;
 
                 // We no longer need a temporary shape (set to null)
                 // TODO
+                tempShape = null;
 
                 // Create the shape given the current state
                 // TODO
+                Shape newShape = createShape();
 
                 // Add the shape to the panel list if the shape exists
                 // TODO
+                shapeList.add(newShape);
                 
                 //repaint
                 repaint();
@@ -177,9 +183,12 @@ public class DrawPanel extends JPanel
                 // Yes
                 // Note the current coordinates
                 // TODO
+            	x1 =  e.getX();
+                y1 = e.getY();
 
                 // Create a temporary shape (look at what variables we have)
                 // TODO
+            	tempShape = createShape();
 
                 // repaint
                 repaint();
