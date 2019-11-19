@@ -27,8 +27,8 @@ import javax.swing.border.TitledBorder;
  * This class extends JFrame and contains the main method. The frame includes
  * all the key components for our GUI.
  * 
- * @author CS2334. Modified by: ?????
- * @version 2018-04-16
+ * @author CS2334. Modified by: Kate McGeath
+ * @version 2019-11-19
  */
 
 public class DrawFrame extends JFrame
@@ -235,7 +235,7 @@ public class DrawFrame extends JFrame
                     // If we're in edit mode, set the color of the chosen shape
                     // to that of the chosen color (You'll need to look at the code drawPanel provides)
                     // TODO
-                	if(isEditing()) {
+                	if(editFlag) {
                 		int chosenShape = drawPanel.getShapeIndex();
                         drawPanel.getShapeList().get(chosenShape).setColor(color);
                 	}
@@ -243,7 +243,8 @@ public class DrawFrame extends JFrame
                     // Repaint the frame and panel. A bit more info is on page 5 of:
                     // https://web.stanford.edu/class/archive/cs/cs108/cs108.1092/handouts/27PaintRepaint.pdf
                     // TODO
-                	shapePanel.repaint();
+                	repaint();
+                	drawPanel.repaint();
                 }
             });
 

@@ -14,8 +14,8 @@ import javax.swing.border.Border;
 /**
  * Panel in which drawing occurs.
  * 
- * @author CS2334. Modified by: ?????
- * @version 2018-04-16
+ * @author CS2334. Modified by: Kate McGeath
+ * @version 2019-11-19
  */
 
 public class DrawPanel extends JPanel
@@ -113,8 +113,8 @@ public class DrawPanel extends JPanel
                                         JOptionPane.YES_NO_OPTION);
                         // TODO: Check answer, remove shape if yes 
                         // You may need to review JOptionPane documentation
-                        if(ret == JOptionPane.YES_OPTION)
-                        	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        if(ret == 0)
+                        	removeShape(index);
 
                         // TODO: break out of for loop
                         break;
@@ -208,7 +208,7 @@ public class DrawPanel extends JPanel
             int ydist = y1 - y0;
             int width = xdist*2; // Width/height are twice the distance from ovals, rectangles, and diamonds.
             int height = ydist*2;
-            Point myPoint = new Point(xdist, ydist);
+            Point myPoint = new Point(x0, y0);
 
             // Create a new object, depending on what is selected
             // TODO give them diamond, comments else
@@ -298,7 +298,8 @@ public class DrawPanel extends JPanel
         	s.draw(g);
         }
         // TODO: If there is a temporary shape, then draw it, too
-        tempShape.draw(g);
+        if(tempShape != null)
+        	tempShape.draw(g);
     }
 
     /**
