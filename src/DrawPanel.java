@@ -80,12 +80,15 @@ public class DrawPanel extends JPanel
 
                         // TODO: find if the shape is filled
                         // TODO: set fillBox to match the status of the shape
-                        if(shapeList.get(index).isFilled())
-                        	frame.fillBox.setFilled();
+                        boolean filled = false;
+                        if(shapeList.get(index).isFilled()) {
+                        	filled = true;
+                        	frame.controlPanel.getFillBox().setSelected(filled);
+                        }
                         
                         // TODO: get color of the shape
                         // TODO: set the color of the frame to match the shape's color
-                        	frame.setColor(shapeList.get(index).getColor());
+                        	frame.getControlPanel().setColor(shapeList.get(index).getColor());
                         
                         // TODO: break out of the for loop
                         break;
@@ -121,6 +124,7 @@ public class DrawPanel extends JPanel
             else // we're drawing a shape
             {
                 // TODO: Indicate that drawing of a shape has begun (look at what flags may be set)
+            	drawingFlag = true;
             }
         }
 
