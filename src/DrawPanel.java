@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
@@ -72,8 +73,7 @@ public class DrawPanel extends JPanel
                 // find which shape was clicked
                 // loop through shapes in stack fashion, LIFO
                 for (int index = shapeList.size() - 1; index > 0; index--) {
-                    if (shapeList.get(index).contains(point))
-                    {
+                    if (shapeList.get(index).contains(point))  {
                         // if the shape contains the point, set the shapeIndex
                         // to be the index in the shapeList
                         shapeIndex = index;
@@ -88,20 +88,19 @@ public class DrawPanel extends JPanel
                         	frame.setColor(shapeList.get(index).getColor());
                         
                         // TODO: break out of the for loop
-                        
+                        break;
                     }
                 }
             }
             else if (frame.isDeleting()) // are we in delete mode?
             {
                 // TODO: create point where the mouse was clicked
+            	Point point = new Point(x0, y0);
                 
                 // find which shape was clicked
                 // loop through shapes in stack fashion, LIFO
-                for (//TODO)
-                {
-                    if (//TODO)
-                    {
+                for (int index = shapeList.size() - 1; index > 0; index--) {
+                    if (shapeList.get(index).contains(point)) {
                         // If the shape contains the point, prompt the user for
                         // a confirmation to delete
                         int ret = JOptionPane.showConfirmDialog(
@@ -111,8 +110,11 @@ public class DrawPanel extends JPanel
                                         JOptionPane.YES_NO_OPTION);
                         // TODO: Check answer, remove shape if yes 
                         // You may need to review JOptionPane documentation
+                        if(ret == JOptionPane.YES_OPTION)
+                        	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
                         // TODO: break out of for loop
+                        break;
                     }
                 }
             }
